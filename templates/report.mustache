@@ -24,7 +24,7 @@
 <div class="beforeafter-report">
     <div class="beforeafter-report-header">
         <div>
-            <a href="{{backurl}}" class="beforeafter-back">← {{#str}}backtoactivity, mod_beforeafter{{/str}}</a>
+            <a href="{{{backurl}}}" class="beforeafter-back">← {{#str}}backtoactivity, mod_beforeafter{{/str}}</a>
             <h2>{{#str}}conceptevolution, mod_beforeafter{{/str}}</h2>
             <p>{{#str}}reportintro, mod_beforeafter{{/str}}</p>
         </div>
@@ -69,7 +69,7 @@
                     {{#rows}}
                         <tr class="{{#complete}}beforeafter-complete{{/complete}}">
                             <td class="beforeafter-student">
-                                <a href="{{profileurl}}">{{fullname}}</a>
+                                <a href="{{{profileurl}}}">{{fullname}}</a>
                                 {{#complete}}<span class="badge bg-success">{{#str}}complete, mod_beforeafter{{/str}}</span>{{/complete}}
                             </td>
                             <td>
