@@ -1,0 +1,98 @@
+{{!
+    This file is part of Moodle - https://moodle.org/
+
+    Moodle is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    Moodle is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+}}
+{{!
+    @template mod_beforeafter/report
+
+    Example context (json):
+    {
+    }
+}}
+<div class="beforeafter-report">
+    <div class="beforeafter-report-header">
+        <div>
+            <a href="{{backurl}}" class="beforeafter-back">← {{#str}}backtoactivity, mod_beforeafter{{/str}}</a>
+            <h2>{{#str}}conceptevolution, mod_beforeafter{{/str}}</h2>
+            <p>{{#str}}reportintro, mod_beforeafter{{/str}}</p>
+        </div>
+        {{#canrelease}}
+            <form method="post" action="{{releaseurl}}">
+                <input type="hidden" name="id" value="{{cmid}}">
+                <input type="hidden" name="sesskey" value="{{sesskey}}">
+                <button type="submit" class="btn btn-primary">{{#str}}releaseafter, mod_beforeafter{{/str}}</button>
+            </form>
+        {{/canrelease}}
+        {{#afterreleased}}
+            <div class="beforeafter-released-badge">
+                {{#str}}afterreleased, mod_beforeafter{{/str}}<br>
+                <small>{{timereleased}}</small>
+            </div>
+        {{/afterreleased}}
+    </div>
+
+    <div class="beforeafter-stats">
+        <div class="beforeafter-stat"><strong>{{total}}</strong><span>{{#str}}participants, mod_beforeafter{{/str}}</span></div>
+        <div class="beforeafter-stat"><strong>{{beforecount}}</strong><span>{{#str}}answeredbefore, mod_beforeafter{{/str}}</span></div>
+        <div class="beforeafter-stat"><strong>{{aftercount}}</strong><span>{{#str}}answeredafter, mod_beforeafter{{/str}}</span></div>
+        <div class="beforeafter-stat"><strong>{{completecount}}</strong><span>{{#str}}completedboth, mod_beforeafter{{/str}}</span></div>
+    </div>
+
+    <div class="beforeafter-report-prompts">
+        <div><strong>{{#str}}beforemoment, mod_beforeafter{{/str}}:</strong> {{beforeprompt}}</div>
+        <div><strong>{{#str}}aftermoment, mod_beforeafter{{/str}}:</strong> {{afterprompt}}</div>
+    </div>
+
+    {{#hasrows}}
+        <div class="table-responsive">
+            <table class="table beforeafter-report-table">
+                <thead>
+                    <tr>
+                        <th>{{#str}}student, mod_beforeafter{{/str}}</th>
+                        <th>{{#str}}beforemoment, mod_beforeafter{{/str}}</th>
+                        <th>{{#str}}aftermoment, mod_beforeafter{{/str}}</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {{#rows}}
+                        <tr class="{{#complete}}beforeafter-complete{{/complete}}">
+                            <td class="beforeafter-student">
+                                <a href="{{profileurl}}">{{fullname}}</a>
+                                {{#complete}}<span class="badge bg-success">{{#str}}complete, mod_beforeafter{{/str}}</span>{{/complete}}
+                            </td>
+                            <td>
+                                {{#hasbefore}}
+                                    <div class="beforeafter-report-response">{{{beforehtml}}}</div>
+                                    <small>{{beforetime}}</small>
+                                {{/hasbefore}}
+                                {{^hasbefore}}<span class="text-muted">{{#str}}noresponse, mod_beforeafter{{/str}}</span>{{/hasbefore}}
+                            </td>
+                            <td>
+                                {{#hasafter}}
+                                    <div class="beforeafter-report-response">{{{afterhtml}}}</div>
+                                    <small>{{aftertime}}</small>
+                                {{/hasafter}}
+                                {{^hasafter}}<span class="text-muted">{{#str}}noresponse, mod_beforeafter{{/str}}</span>{{/hasafter}}
+                            </td>
+                        </tr>
+                    {{/rows}}
+                </tbody>
+            </table>
+        </div>
+    {{/hasrows}}
+    {{^hasrows}}
+        <div class="alert alert-info">{{#str}}noparticipants, mod_beforeafter{{/str}}</div>
+    {{/hasrows}}
+</div>

@@ -1,0 +1,84 @@
+{{!
+    This file is part of Moodle - https://moodle.org/
+
+    Moodle is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    Moodle is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+}}
+{{!
+    @template mod_beforeafter/student_view
+
+    Example context (json):
+    {
+    }
+}}
+<div class="beforeafter-activity">
+    {{#intro}}
+        <div class="beforeafter-intro mb-4">{{{intro}}}</div>
+    {{/intro}}
+
+    <div class="beforeafter-progress mb-4" aria-label="{{#str}}reflectionprogress, mod_beforeafter{{/str}}">
+        <div class="beforeafter-step {{#hasbefore}}is-done{{/hasbefore}}">
+            <span class="beforeafter-step-number">1</span>
+            <span>{{#str}}beforemoment, mod_beforeafter{{/str}}</span>
+        </div>
+        <div class="beforeafter-progress-line"></div>
+        <div class="beforeafter-step {{#afterreleased}}is-open{{/afterreleased}} {{#hasafter}}is-done{{/hasafter}}">
+            <span class="beforeafter-step-number">2</span>
+            <span>{{#str}}aftermoment, mod_beforeafter{{/str}}</span>
+        </div>
+    </div>
+
+    <div class="beforeafter-columns">
+        <section class="beforeafter-card before-card">
+            <div class="beforeafter-card-label">{{#str}}beforemoment, mod_beforeafter{{/str}}</div>
+            <h3>{{beforeprompt}}</h3>
+            {{#hasbefore}}
+                <div class="beforeafter-response">{{{beforehtml}}}</div>
+                <div class="beforeafter-time">{{#str}}savedat, mod_beforeafter{{/str}} {{beforetime}}</div>
+            {{/hasbefore}}
+            {{^hasbefore}}
+                <div class="beforeafter-empty">{{#str}}notansweredyet, mod_beforeafter{{/str}}</div>
+            {{/hasbefore}}
+            {{#afterreleased}}
+                <div class="beforeafter-lock mt-3">{{#str}}beforelockedinfo, mod_beforeafter{{/str}}</div>
+            {{/afterreleased}}
+        </section>
+
+        <section class="beforeafter-card after-card {{^afterreleased}}is-locked{{/afterreleased}}">
+            <div class="beforeafter-card-label">{{#str}}aftermoment, mod_beforeafter{{/str}}</div>
+            <h3>{{afterprompt}}</h3>
+            {{#afterreleased}}
+                {{#hasafter}}
+                    <div class="beforeafter-response">{{{afterhtml}}}</div>
+                    <div class="beforeafter-time">{{#str}}savedat, mod_beforeafter{{/str}} {{aftertime}}</div>
+                {{/hasafter}}
+                {{^hasafter}}
+                    <div class="beforeafter-empty">{{#str}}readyforafter, mod_beforeafter{{/str}}</div>
+                {{/hasafter}}
+            {{/afterreleased}}
+            {{^afterreleased}}
+                <div class="beforeafter-lock-state">
+                    <span aria-hidden="true">🔒</span>
+                    <strong>{{#str}}waitingsecondmoment, mod_beforeafter{{/str}}</strong>
+                    <span>{{#str}}waitingsecondmomentdesc, mod_beforeafter{{/str}}</span>
+                </div>
+            {{/afterreleased}}
+        </section>
+    </div>
+
+    {{#canreport}}
+        <div class="beforeafter-report-link mt-4">
+            <a class="btn btn-secondary" href="{{reporturl}}">{{#str}}viewreport, mod_beforeafter{{/str}}</a>
+        </div>
+    {{/canreport}}
+</div>
