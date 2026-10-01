@@ -1,17 +1,23 @@
 # mod_beforeafter
 
-Atividade Moodle “Eu pensava / Agora penso”.
+Atividade Moodle “Eu pensava / Agora penso”, criada para registrar mudança de entendimento ao longo de uma aula, tema ou
+experiência de aprendizagem.
 
-O estudante registra uma concepção inicial. O professor libera o segundo momento no relatório; nesse instante a primeira
-resposta fica congelada. O estudante registra então “Agora penso”, permitindo comparação conceitual lado a lado.
+## Como funciona
+
+O estudante registra primeiro sua concepção em “Eu pensava”. Quando o professor considera que chegou o momento da
+segunda reflexão, libera “Agora penso” pelo relatório; nesse instante a resposta inicial fica congelada e não pode mais
+ser alterada.
+
+O estudante registra então sua nova percepção, e o professor passa a visualizar as duas respostas lado a lado, o que
+facilita identificar mudanças conceituais sem transformar a atividade em uma prova tradicional.
 
 ## Recursos
 
-- Dois momentos de reflexão com prompts configuráveis.
-- Liberação manual do segundo momento pelo professor.
-- Congelamento da resposta inicial após a liberação.
-- Relatório lado a lado por estudante.
-- Contadores de participação e conclusão.
-- Privacy API.
-- Backup e restore Moodle 2.
-- Compatível a partir do Moodle 4.5.
+- dois momentos de reflexão com prompts configuráveis;
+- liberação manual do segundo momento pelo professor;
+- congelamento da resposta inicial após a liberação;
+- relatório lado a lado por estudante;
+- contadores de participação e conclusão;
+- backup e restauração da atividade;
+- integração com a Privacy API do Moodle.
