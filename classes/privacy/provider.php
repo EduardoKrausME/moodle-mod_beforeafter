@@ -24,6 +24,7 @@
 
 namespace mod_beforeafter\privacy;
 
+use context;
 use context_module;
 use core_privacy\local\metadata\collection;
 use core_privacy\local\request\approved_contextlist;
@@ -34,8 +35,8 @@ use core_privacy\local\request\writer;
  * Class provider.
  */
 class provider implements
-        \core_privacy\local\metadata\provider,
-        \core_privacy\local\request\plugin\provider {
+    \core_privacy\local\metadata\provider,
+    \core_privacy\local\request\plugin\provider {
 
     /**
      * Describes stored personal data.
@@ -116,7 +117,7 @@ class provider implements
                 continue;
             }
 
-            $data = (object) [
+            $data = (object)[
                 get_string("privacy:export:before", "mod_beforeafter") => $entry->beforetext,
                 get_string("privacy:export:after", "mod_beforeafter") => $entry->aftertext,
             ];
@@ -128,9 +129,9 @@ class provider implements
     /**
      * Deletes all response data in one module context.
      *
-     * @param \context $context
+     * @param context $context
      */
-    public static function delete_data_for_all_users_in_context(\context $context): void {
+    public static function delete_data_for_all_users_in_context(context $context): void {
         global $DB;
 
         if (!$context instanceof context_module) {

@@ -41,7 +41,7 @@ $PAGE->set_title(get_string("reporttitle", "mod_beforeafter", format_string($act
 $PAGE->set_heading(format_string($course->fullname));
 $PAGE->set_context($context);
 
-$rawrows = manager::get_report_rows($context, (int) $activity->id);
+$rawrows = manager::get_report_rows($context, (int)$activity->id);
 $rows = [];
 $beforecount = 0;
 $aftercount = 0;

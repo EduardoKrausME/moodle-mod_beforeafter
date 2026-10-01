@@ -51,7 +51,7 @@ class manager {
             return $entry;
         }
 
-        return (object) [
+        return (object)[
             "id" => 0,
             "beforeafterid" => $beforeafterid,
             "userid" => $userid,
@@ -90,7 +90,7 @@ class manager {
             throw new moodle_exception("afternotreleased", "mod_beforeafter");
         }
 
-        $entry = self::get_entry((int) $activity->id, $userid);
+        $entry = self::get_entry((int)$activity->id, $userid);
         $now = time();
 
         if ($stage === "before") {
@@ -167,13 +167,13 @@ class manager {
 
         $byuser = [];
         foreach ($entries as $entry) {
-            $byuser[(int) $entry->userid] = $entry;
+            $byuser[(int)$entry->userid] = $entry;
         }
 
         $rows = [];
         foreach ($users as $user) {
-            $entry = $byuser[(int) $user->id] ?? null;
-            $rows[] = (object) [
+            $entry = $byuser[(int)$user->id] ?? null;
+            $rows[] = (object)[
                 "user" => $user,
                 "entry" => $entry,
             ];

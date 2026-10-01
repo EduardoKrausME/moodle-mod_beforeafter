@@ -24,6 +24,7 @@
 
 require_once(__DIR__ . "/../../config.php");
 
+use core\output\notification;
 use mod_beforeafter\manager;
 
 $id = required_param("id", PARAM_INT);
@@ -37,11 +38,11 @@ require_login($course, true, $cm);
 $context = context_module::instance($cm->id);
 require_capability("mod/beforeafter:releaseafter", $context);
 
-manager::release_after((int) $activity->id);
+manager::release_after((int)$activity->id);
 
 redirect(
     new moodle_url("/mod/beforeafter/report.php", ["id" => $cm->id]),
     get_string("afterreleasedsuccess", "mod_beforeafter"),
     null,
-    \core\output\notification::NOTIFY_SUCCESS
+    notification::NOTIFY_SUCCESS
 );

@@ -2,7 +2,8 @@
 
 Atividade Moodle “Eu pensava / Agora penso”.
 
-O estudante registra uma concepção inicial. O professor libera o segundo momento no relatório; nesse instante a primeira resposta fica congelada. O estudante registra então “Agora penso”, permitindo comparação conceitual lado a lado.
+O estudante registra uma concepção inicial. O professor libera o segundo momento no relatório; nesse instante a primeira
+resposta fica congelada. O estudante registra então “Agora penso”, permitindo comparação conceitual lado a lado.
 
 ## Recursos
 

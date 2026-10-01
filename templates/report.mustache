@@ -44,10 +44,14 @@
     </div>
 
     <div class="beforeafter-stats">
-        <div class="beforeafter-stat"><strong>{{total}}</strong><span>{{#str}}participants, mod_beforeafter{{/str}}</span></div>
-        <div class="beforeafter-stat"><strong>{{beforecount}}</strong><span>{{#str}}answeredbefore, mod_beforeafter{{/str}}</span></div>
-        <div class="beforeafter-stat"><strong>{{aftercount}}</strong><span>{{#str}}answeredafter, mod_beforeafter{{/str}}</span></div>
-        <div class="beforeafter-stat"><strong>{{completecount}}</strong><span>{{#str}}completedboth, mod_beforeafter{{/str}}</span></div>
+        <div class="beforeafter-stat"><strong>{{total}}</strong><span>{{#str}}
+            participants, mod_beforeafter{{/str}}</span></div>
+        <div class="beforeafter-stat"><strong>{{beforecount}}</strong><span>{{#str}}
+            answeredbefore, mod_beforeafter{{/str}}</span></div>
+        <div class="beforeafter-stat"><strong>{{aftercount}}</strong><span>{{#str}}
+            answeredafter, mod_beforeafter{{/str}}</span></div>
+        <div class="beforeafter-stat"><strong>{{completecount}}</strong><span>{{#str}}
+            completedboth, mod_beforeafter{{/str}}</span></div>
     </div>
 
     <div class="beforeafter-report-prompts">
@@ -59,35 +63,38 @@
         <div class="table-responsive">
             <table class="table beforeafter-report-table">
                 <thead>
-                    <tr>
-                        <th>{{#str}}student, mod_beforeafter{{/str}}</th>
-                        <th>{{#str}}beforemoment, mod_beforeafter{{/str}}</th>
-                        <th>{{#str}}aftermoment, mod_beforeafter{{/str}}</th>
-                    </tr>
+                <tr>
+                    <th>{{#str}}student, mod_beforeafter{{/str}}</th>
+                    <th>{{#str}}beforemoment, mod_beforeafter{{/str}}</th>
+                    <th>{{#str}}aftermoment, mod_beforeafter{{/str}}</th>
+                </tr>
                 </thead>
                 <tbody>
-                    {{#rows}}
-                        <tr class="{{#complete}}beforeafter-complete{{/complete}}">
-                            <td class="beforeafter-student">
-                                <a href="{{{profileurl}}}">{{fullname}}</a>
-                                {{#complete}}<span class="badge bg-success">{{#str}}complete, mod_beforeafter{{/str}}</span>{{/complete}}
-                            </td>
-                            <td>
-                                {{#hasbefore}}
-                                    <div class="beforeafter-report-response">{{{beforehtml}}}</div>
-                                    <small>{{beforetime}}</small>
-                                {{/hasbefore}}
-                                {{^hasbefore}}<span class="text-muted">{{#str}}noresponse, mod_beforeafter{{/str}}</span>{{/hasbefore}}
-                            </td>
-                            <td>
-                                {{#hasafter}}
-                                    <div class="beforeafter-report-response">{{{afterhtml}}}</div>
-                                    <small>{{aftertime}}</small>
-                                {{/hasafter}}
-                                {{^hasafter}}<span class="text-muted">{{#str}}noresponse, mod_beforeafter{{/str}}</span>{{/hasafter}}
-                            </td>
-                        </tr>
-                    {{/rows}}
+                {{#rows}}
+                    <tr class="{{#complete}}beforeafter-complete{{/complete}}">
+                        <td class="beforeafter-student">
+                            <a href="{{{profileurl}}}">{{fullname}}</a>
+                            {{#complete}}<span class="badge bg-success">{{#str}}
+                                complete, mod_beforeafter{{/str}}</span>{{/complete}}
+                        </td>
+                        <td>
+                            {{#hasbefore}}
+                                <div class="beforeafter-report-response">{{{beforehtml}}}</div>
+                                <small>{{beforetime}}</small>
+                            {{/hasbefore}}
+                            {{^hasbefore}}<span class="text-muted">{{#str}}
+                                noresponse, mod_beforeafter{{/str}}</span>{{/hasbefore}}
+                        </td>
+                        <td>
+                            {{#hasafter}}
+                                <div class="beforeafter-report-response">{{{afterhtml}}}</div>
+                                <small>{{aftertime}}</small>
+                            {{/hasafter}}
+                            {{^hasafter}}
+                                <span class="text-muted">{{#str}}noresponse, mod_beforeafter{{/str}}</span>{{/hasafter}}
+                        </td>
+                    </tr>
+                {{/rows}}
                 </tbody>
             </table>
         </div>

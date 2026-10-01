@@ -39,10 +39,10 @@ class response_form extends moodleform {
      */
     public function definition(): void {
         $mform = $this->_form;
-        $stage = (string) $this->_customdata["stage"];
-        $prompt = (string) $this->_customdata["prompt"];
-        $initialtext = (string) ($this->_customdata["initialtext"] ?? "");
-        $initialformat = (int) ($this->_customdata["initialformat"] ?? FORMAT_HTML);
+        $stage = (string)$this->_customdata["stage"];
+        $prompt = (string)$this->_customdata["prompt"];
+        $initialtext = (string)($this->_customdata["initialtext"] ?? "");
+        $initialformat = (int)($this->_customdata["initialformat"] ?? FORMAT_HTML);
 
         $mform->addElement("html", "<div class=\"beforeafter-prompt\">" . format_string($prompt) . "</div>");
         $mform->addElement("editor", "response_editor", get_string("yourreflection", "mod_beforeafter"), ["rows" => 10]);

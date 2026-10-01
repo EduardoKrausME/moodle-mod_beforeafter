@@ -49,7 +49,7 @@ class restore_beforeafter_activity_structure_step extends restore_activity_struc
     protected function process_beforeafter($data): void {
         global $DB;
 
-        $data = (object) $data;
+        $data = (object)$data;
         $data->course = $this->get_courseid();
         $newitemid = $DB->insert_record("beforeafter", $data);
         $this->apply_activity_instance($newitemid);
@@ -63,7 +63,7 @@ class restore_beforeafter_activity_structure_step extends restore_activity_struc
     protected function process_beforeafter_entry($data): void {
         global $DB;
 
-        $data = (object) $data;
+        $data = (object)$data;
         $data->beforeafterid = $this->get_new_parentid("beforeafter");
         $data->userid = $this->get_mappingid("user", $data->userid);
 

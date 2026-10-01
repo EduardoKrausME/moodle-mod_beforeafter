@@ -46,7 +46,7 @@ $PAGE->set_context($context);
 $completion = new completion_info($course);
 $completion->set_module_viewed($cm);
 
-$entry = manager::get_entry((int) $activity->id, (int) $USER->id);
+$entry = manager::get_entry((int)$activity->id, (int)$USER->id);
 $canrespond = has_capability("mod/beforeafter:submit", $context);
 $canreport = has_capability("mod/beforeafter:viewreport", $context);
 
@@ -68,10 +68,10 @@ if ($canrespond) {
         $editor = $data->response_editor;
         manager::save_response(
             $activity,
-            (int) $USER->id,
-            (string) $data->stage,
-            (string) $editor["text"],
-            (int) $editor["format"]
+            (int)$USER->id,
+            (string)$data->stage,
+            (string)$editor["text"],
+            (int)$editor["format"]
         );
         redirect($PAGE->url, get_string("responsesaved", "mod_beforeafter"), null, notification::NOTIFY_SUCCESS);
     }
